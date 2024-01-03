@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('pages.home');
 // });
 
-Route::view('/', 'pages.home');
+Route::get('/', function(){
+    $posts = Blog::getAllBlog();
+    return view('pages.home', [
+        'posts' => $posts,
+    ]);
+});
 Route::view('about', 'pages.about');
 Route::view('uses', 'pages.uses');
-Route::view('blog', 'pages.uses');
+Route::get('blog', [BlogController::class, 'index']);
+Route::get('blog/{post}', [BlogController::class, 'show']);
