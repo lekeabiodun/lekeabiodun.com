@@ -13,12 +13,12 @@
     </a>
 </li>
 
-{{-- <li>
-    <a class="{{ request()->pageIs('articles') ? 'text-gray-900 dark:text-gray-100 underline underline-offset-4 decoration-gray-400 dark:decoration-gray-600' : 'text-gray-500 border-transparent' }} py-1 font-medium hover:text-gray-900 dark:hover:text-gray-100"
-        href="{{ url('/') }}">
-        Articles
+<li>
+    <a class="{{ request()->pageIs('blog*') ? 'text-gray-900 dark:text-gray-100 underline underline-offset-4 decoration-gray-400 dark:decoration-gray-600' : 'text-gray-500 border-transparent' }} py-1 font-medium hover:text-gray-900 dark:hover:text-gray-100"
+        href="{{ url('/blog') }}">
+        Blog
     </a>
-</li> --}}
+</li>
 
 <li>
     <a class="{{ request()->pageIs('uses') ? 'text-gray-900 dark:text-gray-100 underline underline-offset-4 decoration-gray-400 dark:decoration-gray-600' : 'text-gray-500 border-transparent' }} py-1 font-medium hover:text-gray-900 dark:hover:text-gray-100"

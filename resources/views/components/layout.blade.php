@@ -58,7 +58,7 @@
         {{ $slot }}
     </main>
 
-    <x-subscriber />
+    {{-- <x-subscriber /> --}}
 
     <x-footer />
 </body>

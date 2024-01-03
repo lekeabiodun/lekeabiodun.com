@@ -17,6 +17,10 @@
                     <a href="https://autorenew.ng">AutoRenew</a> and <a href="https://asake.app/">Asake</a>, and I
                     work with the team at <a href="https://metarelic.com">Metarelic</a>. --}}
                 </p>
+
+                <section>
+                    <x-posts :posts="$posts" />
+                </section>
             </div>
         </div>
 
