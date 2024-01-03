@@ -9,6 +9,9 @@
                 PHP is no longer sucks! These days you will mostly find me building web applications with PHP, Laravel,
                 Livewire, AlpineJS and TailwindCSS.
             </p>
+            <p>One of the most exciting developments in recent time is the rise of Artificial Intelligence (AI), which
+                has revolutionised how we interact with machines and solve problems. Ai is mind blowing and this has
+                become one of my favorite hobbies.</p>
             <p>Some interesting projects I've worked on include:</p>
             <ul>
                 <li>FinTech</li>
