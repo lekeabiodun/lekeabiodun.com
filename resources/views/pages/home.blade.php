@@ -9,15 +9,13 @@
                     <strong>unique</strong>
                     problems and
                     create <strong>solutions</strong> that drive business growth.
-                    {{-- , I'm a
-                    <strong>performance-driven</strong> and motivated Full-Stack
-                    Developer. --}}
-
-                    {{-- I'm currently building
-                    <a href="https://autorenew.ng">AutoRenew</a> and <a href="https://asake.app/">Asake</a>, and I
-                    work with the team at <a href="https://metarelic.com">Metarelic</a>. --}}
                 </p>
 
+                <h2>
+                    <a href="/blog">
+                        Blogs
+                    </a>
+                </h2>
                 <section>
                     <x-posts :posts="$posts" />
                 </section>

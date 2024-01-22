@@ -11,8 +11,7 @@ author: Leke Abiodun
 author_avatar: img/authors/lekeabiodun.png
 author_role: Prompt Engineer
 ---
-# Prompting: Good Prompt, Bad Prompt 
-
+## Introduction.
 When using large language models like ChatGPT, the prompts you write can have a big impact on the quality of the response. A good prompt clearly defines the task or question for the model, provides relevant context, and sets expectations. A bad prompt can confuse the model, lead to harmful responses, or fail to produce useful output. Here are some tips on writing good vs bad prompts:
 
 ## The Good Prompt

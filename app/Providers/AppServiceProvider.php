@@ -29,6 +29,14 @@ class AppServiceProvider extends ServiceProvider
 
         $exporter->crawl(false);
 
-        $exporter->paths(['', 'about', 'uses']);
+        $exporter->paths([
+            '',
+            'about',
+            'uses',
+            'blog',
+            'blog/examples-of-good-prompt-bad-prompt',
+            'blog/what-is-prompt-fu',
+            'blog/prompting-good-prompt-bad-prompt',
+        ]);
     }
 }

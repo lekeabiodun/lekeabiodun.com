@@ -3,7 +3,7 @@ category: AI
 created_at: 01/22/2024
 updated_at: 01/22/2024
 published_at: 01/22/2024
-title: 11 Examples of good prompt
+title: 11 examples of good prompt
 image: img/blogs/what-is-prompt-fu.jpg
 excerpt: When you talk to an AI chatbot, how you ask your question really matters. A thoughtful, well-written prompt leads to better answers. But a sloppy, confusing prompt gives you useless or silly replies.
 slug: examples-of-good-prompt-bad-prompt
@@ -11,8 +11,7 @@ author: Leke Abiodun
 author_avatar: img/authors/lekeabiodun.png
 author_role: Prompt Engineer
 ---
-# 11 examples of good prompts.
-
+## Introduction.
 When you talk to an AI chatbot, how you ask your question really matters. A thoughtful, well-written prompt leads to better answers. But a sloppy, confusing prompt gives you useless or silly replies.
 
 I made this blog to showcase prompts done right and done wrong across many examples. Comparing good and bad prompts teaches how to talk to chatbots the best way.
