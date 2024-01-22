@@ -52,6 +52,17 @@
                     solution to get you started, with solid testing and best practices.
                 </p>
             </div>
+            <div class="not-prose mt-14">
+                <h2 class="mt-3 text-lg font-medium text-gray-800 dark:text-gray-200">
+                    <a class="hover:underline focus:underline" href="https://www.notion.so/" target="_blank">
+                        Notion
+                    </a>
+                </h2>
+                <p class="mt-3 text-base leading-relaxed text-gray-500">Notion is a freemium productivity and
+                    note-taking web application developed by Notion Labs Inc. It offers organizational tools including
+                    task management, project tracking, to-do lists, and bookmarking.
+                </p>
+            </div>
         </div>
     </x-container>
 </x-layout>

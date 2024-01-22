@@ -1,7 +1,7 @@
 @foreach ($posts as $post)
-    <article class="">
+    <article class="mt-8">
+        <p class="text-sm text-gray-500">{{ now()->parse($post->created_at)->format('M d, Y') }}</p>
         <div class="prose prose-zinc max-w-none dark:prose-invert sm:prose-lg">
-            <p class="text-sm text-gray-500">{{ now()->parse($post->created_at)->format('M d, Y') }}</p>
             <h2 class="mt-3 text-lg font-medium text-gray-800 dark:text-gray-200">
                 <a class="hover:underline focus:underline" href="/blog/{{ $post->slug }}">
                     {{ $post->title }}
