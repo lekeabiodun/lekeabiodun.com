@@ -37,6 +37,8 @@ class AppServiceProvider extends ServiceProvider
             'blog/examples-of-good-prompt-bad-prompt',
             'blog/what-is-prompt-fu',
             'blog/prompting-good-prompt-bad-prompt',
+            'blog/why-you-should-outsource-bug-fixing',
+            'blog/why-i-fell-in-love-with-fixing-bugs',
         ]);
     }
 }

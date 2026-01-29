@@ -63,6 +63,42 @@
                     task management, project tracking, to-do lists, and bookmarking.
                 </p>
             </div>
+            <div class="not-prose mt-14">
+                <h2 class="mt-3 text-lg font-medium text-gray-800 dark:text-gray-200">
+                    <a class="hover:underline focus:underline" href="https://deepmind.google/technologies/project-astra/" target="_blank">
+                        Google Antigravity
+                    </a>
+                </h2>
+                <p class="mt-3 text-base leading-relaxed text-gray-500">Google Antigravity is my go-to AI coding assistant. It helps me debug faster, understand unfamiliar codebases, and write code more efficiently. It's become an essential part of my bug-hunting workflow.
+                </p>
+            </div>
+            <div class="not-prose mt-14">
+                <h2 class="mt-3 text-lg font-medium text-gray-800 dark:text-gray-200">
+                    <a class="hover:underline focus:underline" href="https://nextjs.org/" target="_blank">
+                        Next.js
+                    </a>
+                </h2>
+                <p class="mt-3 text-base leading-relaxed text-gray-500">Next.js is my React framework of choice for building full-stack web applications. It handles routing, server-side rendering, and API routes out of the box, making it perfect for modern web apps.
+                </p>
+            </div>
+            <div class="not-prose mt-14">
+                <h2 class="mt-3 text-lg font-medium text-gray-800 dark:text-gray-200">
+                    <a class="hover:underline focus:underline" href="https://bun.sh/" target="_blank">
+                        Bun.js
+                    </a>
+                </h2>
+                <p class="mt-3 text-base leading-relaxed text-gray-500">Bun is an incredibly fast JavaScript runtime, bundler, and package manager all in one. I use it for quick scripts, API servers, and anywhere I need blazing speed. It's a game-changer for JavaScript development.
+                </p>
+            </div>
+            <div class="not-prose mt-14">
+                <h2 class="mt-3 text-lg font-medium text-gray-800 dark:text-gray-200">
+                    <a class="hover:underline focus:underline" href="https://flask.palletsprojects.com/" target="_blank">
+                        Flask (Python)
+                    </a>
+                </h2>
+                <p class="mt-3 text-base leading-relaxed text-gray-500">Flask is a lightweight Python web framework that I reach for when I need to build APIs or microservices quickly. It's minimal, flexible, and gets out of your way — perfect for prototyping and production alike.
+                </p>
+            </div>
         </div>
     </x-container>
 </x-layout>
