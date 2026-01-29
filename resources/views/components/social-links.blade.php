@@ -1,7 +1,7 @@
 <div class="mb-6 flex justify-center">
     <ul class="flex gap-4">
         <li>
-            <a class="text-gray-400 hover:text-gray-600" href="https://twitter.com/thelekeabiodun" target="_blank">
+            <a class="text-gray-400 hover:text-gray-600" href="https://x.com/thelekeabiodun" target="_blank">
                 <svg role="img" aria-label="Twitter" width="24" height="24" viewBox="0 0 24 24"
                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path
