@@ -1,0 +1,60 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+import { excerpt, formatDate, getPostsWithBody, type Post } from '../../lib/sanity';
+import { renderPortableText } from '../../lib/portableText';
+
+export const getStaticPaths = (async () => {
+    const posts = await getPostsWithBody();
+
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+    post: Post;
+}
+
+const { post } = Astro.props;
+
+const body = renderPortableText(post.body);
+const mainImage = post.mainImage?.asset?.url;
+---
+
+<Layout
+    title={post.title}
+    description={excerpt(post.excerpt, 160)}
+    ogType="article"
+>
+    <Container>
+        <section class="py-8">
+            <article>
+                <div class="prose prose-zinc max-w-none dark:prose-invert sm:prose-lg">
+                    <p class="text-sm text-gray-500">{formatDate(post.publishedAt || post._createdAt)}</p>
+                    <h1>{post.title}</h1>
+
+                    {
+                        post.author?.name && (
+                            <p class="text-sm text-gray-500">
+                                By <span>{post.author.name}</span>
+                            </p>
+                        )
+                    }
+
+                    {
+                        mainImage && (
+                            <figure>
+                                <img class="w-full rounded" src={mainImage} alt={post.title} />
+                            </figure>
+                        )
+                    }
+
+                    <div set:html={body} />
+                </div>
+            </article>
+        </section>
+    </Container>
+</Layout>

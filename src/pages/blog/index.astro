@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../lib/sanity';
+
+const posts = await getPosts();
+---
+
+<Layout
+    title="Blog"
+    description="Thoughts on engineering, debugging, and building useful things on the internet."
+>
+    <Container>
+        <section class="py-8">
+            <div class="prose prose-zinc max-w-none dark:prose-invert sm:prose-lg">
+                <h1>Blog</h1>
+                <p>
+                    Thoughts on engineering, debugging, and building useful things on the internet.
+                </p>
+            </div>
+
+            <PostList posts={posts} />
+        </section>
+    </Container>
+</Layout>

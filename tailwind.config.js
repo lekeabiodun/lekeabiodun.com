@@ -2,9 +2,7 @@
 export default {
   darkMode: 'class',
   content: [
-    "./resources/**/*.blade.php",
-    "./resources/**/*.js",
-    "./resources/**/*.vue",
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
   theme: {
     extend: {},
@@ -13,4 +11,3 @@ export default {
     require('@tailwindcss/typography'),
   ]
 }
-

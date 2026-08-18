@@ -1,0 +1,35 @@
+---
+interface Props {
+    title?: string;
+    description?: string;
+    canonical?: string;
+    ogType?: string;
+}
+
+const {
+    title = 'Leke Abiodun',
+    description = "Hi there! I'm Leke Abiodun from Lagos Nigeria, I'm fullstack developer",
+    canonical = new URL(Astro.url.pathname, Astro.site).href,
+    ogType = 'website',
+} = Astro.props;
+
+const image = new URL('/img/leke-abiodun.png', Astro.site).href;
+---
+
+<meta property="og:site_name" content="Leke Abiodun" />
+<meta property="og:image" content={image} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="twitter:image" content={image} />
+<meta property="twitter:image:src" content={image} />
+<meta name="description" content={description} />
+<meta name="og:image" content={image} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@thelekeabiodun" />
+<link href={canonical} rel="canonical" />
+<link href="/" rel="home" />
+<link href="/img/leke-abiodun.png" rel="icon" />
