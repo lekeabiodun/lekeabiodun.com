@@ -1,31 +1,264 @@
 ---
+/**
+ * Homepage — P08 §2.2, "Homepage V0".
+ *
+ * Copy is verbatim from the spec. Every bracketed item in the spec is a gate in
+ * ../data/profile.ts and renders only once answered — §2.2: "Do not publish a
+ * bracket." V1 (§2.3) swaps three things on 2026-10-19 and is not built here.
+ */
 import Layout from '../layouts/Layout.astro';
-import PostList from '../components/PostList.astro';
-import { getPosts } from '../lib/sanity';
+import { getPosts, formatDate } from '../lib/sanity';
+import {
+    availability,
+    calendlyUrl,
+    contractCommitments,
+    deskWindow,
+    email,
+    referenceBullet,
+    rightNow,
+    workWithMeUrl,
+} from '../data/profile';
 
-const posts = await getPosts();
+const posts = (await getPosts()).slice(0, 3);
+
+/** §7.2 — UTMs are typed into the links at the moment those links are written. */
+const opamedia = (path: string, campaign: string) =>
+    `https://opamediatech.com${path}?utm_source=lekeabiodun&utm_medium=referral&utm_campaign=${campaign}`;
+
+const label = 'text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400';
+const section = 'border-t border-gray-200 pt-10 dark:border-gray-800';
+const body = 'prose prose-zinc max-w-none dark:prose-invert';
 ---
 
-<Layout title="Homepage">
-    <article class="flex flex-1 items-center justify-center">
-        <div class="w-full max-w-3xl px-4 py-12">
-            <div class="prose prose-zinc mt-8 max-w-none dark:prose-invert sm:prose-lg">
-                <h1>Builder. Bug Hunter. Engineer.</h1>
+<Layout
+    title="Homepage"
+    description="Production debugging on live systems other people built, and the specification tools that let a buyer configure a complex product without phoning a rep."
+>
+    <div class="mx-auto w-full max-w-2xl space-y-10 px-4 py-12">
+        <!-- ── HERO ───────────────────────────────────────────────── -->
+        <section>
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+                I work on software that is already live.
+            </h1>
 
+            <div class={`${body} mt-6`}>
                 <p>
-                    I fix bugs for a living, helping customers and dev teams ship cleaner, more stable code.
+                    Production debugging on systems other people built, and the specification tools that
+                    let a buyer configure a complex product without phoning a rep. Laravel, React,
+                    Next.js, Python.
                 </p>
 
-                <h2>
-                    <a href="/blog">
-                        Blogs
-                    </a>
-                </h2>
-                <section>
-                    <PostList posts={posts} />
-                </section>
+                {/* OQ2 — §2.5 treats this as a promise, not copy. No window, no paragraph. */}
+                {deskWindow && (
+                    <p>
+                        I'm in Lagos. I hold {deskWindow} every weekday. That overlaps the whole New York
+                        and Montreal morning and the Chicago morning, every day of the year — the offset
+                        never changes on my end, so when North America puts its clocks back on 1 November,
+                        I move with it.
+                    </p>
+                )}
             </div>
-        </div>
 
-    </article>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                    class="flex-1 rounded-lg border border-gray-300 px-5 py-4 no-underline transition hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800"
+                    href={opamedia('/', 'homepage-hero-door1')}
+                >
+                    <span class="block font-medium text-gray-900 dark:text-gray-100">Hire my company &rarr;</span>
+                    <span class="mt-1 block text-sm text-gray-500">opamediatech.com</span>
+                </a>
+
+                {/* Renders once /work-with-me (§3.2) is live. A CTA to a 404 is worse than one CTA. */}
+                {workWithMeUrl && (
+                    <a
+                        class="flex-1 rounded-lg border border-gray-300 px-5 py-4 no-underline transition hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800"
+                        href={workWithMeUrl}
+                    >
+                        <span class="block font-medium text-gray-900 dark:text-gray-100">
+                            Something is broken in production &rarr;
+                        </span>
+                        <span class="mt-1 block text-sm text-gray-500">a fixed-price week, $2,400</span>
+                    </a>
+                )}
+            </div>
+
+            {/* OQ3. The SLA half is a commitment (§2.5) and does not publish without an address to hold it on. */}
+            {email && (
+                <p class="mt-6 text-sm text-gray-500">
+                    <a class="text-gray-700 underline dark:text-gray-300" href={`mailto:${email}`}>{email}</a>
+                    <span> · I reply to every email within one working day.</span>
+                </p>
+            )}
+        </section>
+
+        <!-- ── RIGHT NOW ──────────────────────────────────────────── -->
+        {/* §2.4 — deleted entirely on any week with no line. A stale RIGHT NOW is worse than none. */}
+        {rightNow && (
+            <section class={section}>
+                <h2 class={label}>
+                    Right now <span class="font-normal normal-case tracking-normal text-gray-400">(updated {formatDate(rightNow.updated)})</span>
+                </h2>
+                <div class={`${body} mt-4`}>
+                    <p>{rightNow.line}</p>
+                    {availability && <p>{availability}</p>}
+                </div>
+            </section>
+        )}
+
+        <!-- ── THE IDEA I WORK FROM ───────────────────────────────── -->
+        <section class={section}>
+            <h2 class={label}>The idea I work from</h2>
+            <div class={`${body} mt-4`}>
+                <p>Almost nothing breaks because someone wrote bad code.</p>
+                <p>
+                    Things break at the decision layer — the rules a business actually runs on, which live
+                    in one person's head, in a rep's email thread, in a spreadsheet called FINAL_v3, and in
+                    nobody's repository. The code is downstream of that. It is only ever as coherent as the
+                    decisions it was asked to encode.
+                </p>
+                <p>
+                    That is why a production bug and a confused specifier are the same problem wearing
+                    different clothes. When an architect can't work out which of your fixtures will fit a
+                    24-inch grid with an emergency driver, the failure is not the website. The failure is
+                    that the rule exists only in the head of a regional rep who is carrying 80 other lines.
+                </p>
+                <p>
+                    My job is to find the decision layer, write it down, and make it executable — either in
+                    a running system that is currently getting it wrong, or in a tool that puts it in front
+                    of the buyer directly.
+                </p>
+            </div>
+        </section>
+
+        <!-- ── WHAT I HAVE ACTUALLY SHIPPED ───────────────────────── -->
+        <section class={section}>
+            <h2 class={label}>What I have actually shipped</h2>
+            <div class={`${body} mt-4`}>
+                <h3 class="text-lg font-medium">Tacet — Axis Lighting (Montreal)</h3>
+                <p>
+                    A browser-based configurator that lets architects, designers and specifiers build,
+                    visualise and specify acoustic lighting on their own — sizes, finishes and mountings —
+                    instead of running the options past a sales rep. I mapped the specification journey end
+                    to end, found where people dropped out, and built the decision-guided interface and the
+                    front-end architecture that carries the product logic.
+                </p>
+                <p>
+                    <a href={opamedia('/tacet-acoustic-lighting-configurator-case-study', 'homepage-tacet')}>
+                        Read the full case study on opamediatech.com &rarr;
+                    </a>
+                </p>
+
+                <h3 class="text-lg font-medium">Picasso Lighting · Blommy · Bluesky Home Care</h3>
+                <p>A landing page, an e-commerce experience, and home health services.</p>
+                <p>
+                    <a href={opamedia('/projects', 'homepage-projects')}>opamediatech.com/projects &rarr;</a>
+                </p>
+
+                <p>
+                    Code you can read: <a href="https://github.com/lekeabiodun">github.com/lekeabiodun</a>
+                </p>
+                <p>
+                    My own products: Vechtron (conversational AI for automotive diagnostics) and
+                    DailyBugFix. These are mine, not client work, and I label them that way everywhere.
+                </p>
+            </div>
+        </section>
+
+        <!-- ── HOW TO CHECK ME ────────────────────────────────────── -->
+        <section class={section}>
+            <h2 class={label}>How to check me</h2>
+            <div class={`${body} mt-4`}>
+                <p>
+                    I would not hire someone on the other side of the Atlantic on the strength of their own
+                    website either. So:
+                </p>
+
+                <p class="font-medium">True today, and you can verify it yourself:</p>
+                <ul>
+                    <li>
+                        Everything I claim to have measured, I publish the method and the URLs for, so you
+                        can re-run it yourself. If I'm wrong, the correction goes on the same page, dated.
+                    </li>
+                </ul>
+
+                {/* §2.7.1 Form 2 — gated on OQ14 AND on appearing verbatim in the signed scope document. */}
+                {contractCommitments && (
+                    <>
+                        <p class="font-medium">In the contract, before you pay anything:</p>
+                        <ul>
+                            <li>
+                                Your code lives in your repository from day one, not mine. If I vanish, you
+                                still have the work and the commit history.
+                            </li>
+                            <li>
+                                Fixed price, fixed scope, milestone payments. You never pay for something
+                                that hasn't been delivered.
+                            </li>
+                            <li>A written runbook ships with the project, and I write it first.</li>
+                        </ul>
+                    </>
+                )}
+
+                {/* §2.7.2 — does not publish in V0. Needs one client's written yes. */}
+                {referenceBullet && (
+                    <ul>
+                        <li>
+                            And I'll give you a client to call before you commit; I don't script them and
+                            I'm not on the call.
+                        </li>
+                    </ul>
+                )}
+            </div>
+        </section>
+
+        <!-- ── WHAT I AM NOT FOR ──────────────────────────────────── -->
+        <section class={section}>
+            <h2 class={label}>What I am not for</h2>
+            <div class={`${body} mt-4`}>
+                <ul>
+                    <li>
+                        Greenfield "build me an app from scratch" projects. I'm at my most useful where
+                        something already exists and is misbehaving.
+                    </li>
+                    <li>Anything under $1,950. It costs us both more to scope than it's worth.</li>
+                    <li>Open-ended hourly time under my own name, with no defined outcome.</li>
+                    <li>
+                        Work where I can't publish anything, ever, in any form. I'll take a strict NDA. I
+                        won't take a total blackout — every project I've shipped without a baseline
+                        measurement is a project I can't show you a number for, and I'm not doing that
+                        again.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ── WRITING ────────────────────────────────────────────── -->
+        {posts.length > 0 && (
+            <section class={section}>
+                <h2 class={label}>Writing</h2>
+                <ul class="mt-4 space-y-4 list-none pl-0">
+                    {posts.map((post) => (
+                        <li>
+                            <p class="text-sm text-gray-500">{formatDate(post.publishedAt || post._createdAt)}</p>
+                            <a
+                                class="text-gray-900 hover:underline dark:text-gray-100"
+                                href={`/blog/${post.slug}`}
+                            >
+                                {post.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                <p class="mt-6">
+                    <a class="text-gray-700 hover:underline dark:text-gray-300" href="/blog">All writing &rarr;</a>
+                </p>
+            </section>
+        )}
+
+        {calendlyUrl && (
+            <p class="text-sm text-gray-500">
+                <a class="text-gray-700 underline dark:text-gray-300" href={calendlyUrl}>Book 20 minutes &rarr;</a>
+            </p>
+        )}
+    </div>
 </Layout>

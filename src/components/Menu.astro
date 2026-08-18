@@ -1,11 +1,11 @@
 ---
+// §1.7: /uses is demoted from the top nav to the footer.
 const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
 
 const links = [
     { href: '/', label: 'Home', active: path === '/' },
     { href: '/about', label: 'About', active: path === '/about' },
     { href: '/blog', label: 'Blog', active: path === '/blog' || path.startsWith('/blog/') },
-    { href: '/uses', label: 'Uses', active: path === '/uses' },
 ];
 
 const activeClass =

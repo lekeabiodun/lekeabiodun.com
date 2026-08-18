@@ -1,13 +1,53 @@
 ---
+/**
+ * Footer — P08 §2.2 (FOOTER block) and §7.2 item 4, the reciprocal link.
+ * Ground truth §2 records zero links between the properties; this is that fix.
+ * Email and the booking link are gated in ../data/profile.ts.
+ */
 import SocialLinks from './SocialLinks.astro';
+import { calendlyUrl, email } from '../data/profile';
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="p-8">
-    <SocialLinks />
+<footer class="mt-16 border-t border-gray-200 px-4 py-10 dark:border-gray-800">
+    <div class="mx-auto w-full max-w-2xl space-y-4 text-sm text-gray-500">
+        <p>Leke Abiodun — Lagos, Nigeria (WAT, UTC+1)</p>
 
-    <p class="text-center text-xs text-gray-500">
-        &copy; {year} Leke Abiodun.
-    </p>
+        {
+            (email || calendlyUrl) && (
+                <p>
+                    {email && (
+                        <a class="text-gray-700 hover:underline dark:text-gray-300" href={`mailto:${email}`}>
+                            {email}
+                        </a>
+                    )}
+                    {email && calendlyUrl && <span> · </span>}
+                    {calendlyUrl && (
+                        <a class="text-gray-700 hover:underline dark:text-gray-300" href={calendlyUrl}>
+                            Book 20 minutes &rarr;
+                        </a>
+                    )}
+                </p>
+            )
+        }
+
+        <p>
+            My company: Opamedia — design, build and AI for spec-sold manufacturers &rarr;{' '}
+            <a
+                class="text-gray-700 hover:underline dark:text-gray-300"
+                href="https://opamediatech.com/?utm_source=lekeabiodun&utm_medium=referral&utm_campaign=footer"
+            >
+                opamediatech.com
+            </a>
+        </p>
+
+        <div class="pt-2">
+            <SocialLinks />
+            <p class="text-center text-xs">
+                <a class="hover:underline" href="/uses">Uses</a>
+            </p>
+            <p class="mt-4 text-center text-xs">&copy; {year} Leke Abiodun.</p>
+        </div>
+    </div>
 </footer>
