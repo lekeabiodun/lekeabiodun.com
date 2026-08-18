@@ -1,0 +1,390 @@
+---
+/**
+ * /work-with-me — P08 §3.2, verbatim.
+ *
+ * Two doors, one page, never a shared form and never a shared scan-path.
+ * §3.3(b), the price-adjacency rule: the $2,400 Sprint price must never sit in
+ * the same uninterrupted reading path as a Door 1 build price. Compliance here
+ * is structural — the page forks in its opening two lines, and Door 1
+ * terminates in an explicit "you are done" before section 2's heading.
+ * Bracketed items in the spec are gates in ../data/profile.ts and do not
+ * render until answered (§2.2: "Do not publish a bracket").
+ */
+import Layout from '../layouts/Layout.astro';
+import {
+    calendlySprint15,
+    calendlySpecTools20,
+    contractCommitments,
+    deskWindow,
+    email,
+    paymentRail,
+    referenceBullet,
+    sprintSlots,
+} from '../data/profile';
+
+const opamedia = (path: string, campaign: string) =>
+    `https://opamediatech.com${path}?utm_source=lekeabiodun&utm_medium=referral&utm_campaign=${campaign}`;
+
+const body = 'prose prose-zinc max-w-none dark:prose-invert';
+const offer =
+    'not-prose my-6 rounded-lg border border-gray-300 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50';
+const offerTitle = 'font-medium text-gray-900 dark:text-gray-100';
+const offerBody = 'mt-3 space-y-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300';
+---
+
+<Layout
+    title="Work with me"
+    description="Two ways to work together: a specifier journey teardown for manufacturers whose product is hard to specify, and a fixed-price production stability sprint for teams carrying a bug backlog."
+>
+    <div class="mx-auto w-full max-w-2xl px-4 py-12">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            Work with me
+        </h1>
+
+        <div class={`${body} mt-6`}>
+            <p>
+                There are two ways to do this, and they are genuinely different. Pick the one that
+                describes you and skip the other. If you're a manufacturer, everything you need is in
+                section 1 and it ends with a link out — you never need to read section 2.
+            </p>
+        </div>
+
+        <!-- ══ DOOR 1 ══════════════════════════════════════════════ -->
+        <section class="mt-14 border-t-4 border-gray-900 pt-8 dark:border-gray-100">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                1. You make a complicated product and buying it is harder than it should be
+            </h2>
+
+            <div class={`${body} mt-6`}>
+                <p>
+                    You manufacture something that gets specified rather than purchased — lighting,
+                    ceilings, acoustics, glazing, casework, commercial furniture. It comes in sizes ×
+                    finishes × mountings × performance options. Somewhere between "an architect is
+                    interested" and "a purchase order exists" there is a human being reading options off a
+                    PDF, and that human is your bottleneck.
+                </p>
+                <p>The first step is not a build. It's a teardown.</p>
+            </div>
+
+            <div class={offer}>
+                <p class={offerTitle}>Specifier Journey Teardown — $1,950, seven business days</p>
+                <div class={offerBody}>
+                    <p>
+                        I walk your product the way an architect would, from the moment they land to the
+                        moment they'd have a price. I count the exact drop-out points. You get the
+                        walkthrough, the screenshots, the ranked fix list, and a signable fixed-price build
+                        scope with a named start date attached to it.
+                    </p>
+                    <p>
+                        If it isn't useful, tell me within five business days and I refund it in full — no
+                        reason required, and you keep the document. If you go on to book a build within 60
+                        days, the $1,950 comes off.
+                    </p>
+                </div>
+            </div>
+
+            <div class={body}><p>Then, if the findings warrant it:</p></div>
+
+            <div class={offer}>
+                <p class={offerTitle}>Specification Configurator — Starter — $12,500, six weeks</p>
+                <div class={offerBody}>
+                    <p>
+                        One product family, rules engine, real catalogue number and spec sheet out the other
+                        end, quote request into your inbox.
+                    </p>
+                </div>
+            </div>
+
+            <div class={offer}>
+                <p class={offerTitle}>Specification Configurator — Standard — $28,000, ten weeks</p>
+                <div class={offerBody}>
+                    <p>
+                        Full product line, complex option logic, spec-sheet output, CRM or email handoff.
+                    </p>
+                </div>
+            </div>
+
+            <div class={body}>
+                <p>No licence fee. No per-model charge. You own it.</p>
+                <p>
+                    For comparison, because I'd want the comparison: the platform alternatives publish their
+                    own list prices in euros — €15,000–€50,000+ per year in licence alone, plus €1,200–€2,000
+                    per product model to set up. Those are itqlick's configurator pricing survey and CPQ3D's
+                    2026 pricing survey, and I'll send you both links. If you have 40 SKUs, the model setup
+                    fees alone come to €48,000–€80,000 — more than this entire project. Ask me on the call
+                    and I'll convert it to dollars at that day's ECB reference rate.
+                </p>
+                <p>
+                    <a href={opamedia('/tacet-acoustic-lighting-configurator-case-study', 'tacet-casestudy')}>
+                        See what this looks like: the Tacet configurator, built for Axis Lighting &rarr;
+                    </a>
+                </p>
+                <p>
+                    <a href={opamedia('/product-configurators', 'work-with-me-door1')}>
+                        Start here: opamediatech.com/product-configurators &rarr;
+                    </a>
+                </p>
+
+                {calendlySpecTools20 && (
+                    <p>
+                        Or book 20 minutes with me directly: <a href={calendlySpecTools20}>book a call &rarr;</a>
+                        <br />
+                        No deck. I'll ask you how many valid configurations the product has and how a
+                        specifier gets a price today. If the answer is "they call a rep," we have something
+                        to talk about. If it isn't, I'll tell you that on the call and we'll both keep our
+                        afternoon.
+                    </p>
+                )}
+
+                <p>
+                    This work is delivered by my company, Opamedia. Written scope, milestone payments, and a
+                    case study you can read before you speak to anyone.
+                </p>
+            </div>
+
+            {/* §3.3(c) — the explicit terminator. Door 1 ends before any Door 2 price is readable. */}
+            <div class="my-12 border-y border-gray-200 py-6 text-center dark:border-gray-800">
+                <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    — that is the end of section 1 —
+                </p>
+                <p class="mx-auto mt-3 max-w-md text-sm text-gray-500">
+                    If you are a manufacturer, you are done. Section 2 is a different service for a
+                    different buyer and the prices in it have nothing to do with the prices above.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ DOOR 2 ══════════════════════════════════════════════ -->
+        <section class="border-t-4 border-gray-900 pt-8 dark:border-gray-100">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                2. Something is broken in production and it has been broken for a while
+            </h2>
+
+            <div class={`${body} mt-6`}>
+                <p>
+                    You have a system carrying real users and real money. There is a list of things that go
+                    wrong. Nobody has had a clear week to sit with it, and every week it costs a little more.
+                </p>
+            </div>
+
+            <div class={offer}>
+                <p class={offerTitle}>Production Stability Sprint — $2,400, five business days</p>
+                <div class={offerBody}>
+                    <p>
+                        Up to five named production bugs: reproduced, root-caused, fixed, tested, shipped.
+                        Plus a written fragility map — the parts of the system most likely to be next, and
+                        why — and a runbook for everything I touched.
+                    </p>
+                </div>
+            </div>
+
+            <div class={body}>
+                <p>That is the whole offer. There is no hourly version of it.</p>
+
+                <p>How the five bugs actually work, so nobody is surprised on day five:</p>
+                <ul>
+                    <li>You name up to five before we start, and they go in the scope document by name.</li>
+                    <li>
+                        Day one is reading. I don't bill for it separately — it's inside the five days and
+                        inside the $2,400.
+                    </li>
+                    <li>
+                        By 17:00 my time on day two you get a written triage: which ones I have reproduced,
+                        which I have not, and the list I am committing to for days three to five. That
+                        committed list is what "done" means.
+                    </li>
+                    <li>
+                        A bug I cannot reproduce by end of day two does not get abandoned quietly — it gets
+                        written up with everything I tried, and you can swap in another from your backlog at
+                        no charge.
+                    </li>
+                    <li>
+                        I do not run into a sixth day. At 17:00 on day three I check two things: is every
+                        committed bug root-caused — cause named in a sentence, not just reproduced — and have
+                        I used more than ten of the sixteen hours. If either answer is bad, you get an email
+                        that evening telling you so, with what the rest would actually take. You decide. I
+                        don't absorb it and go quiet, and I don't bill you for extra without asking.
+                    </li>
+                </ul>
+
+                <p>
+                    Start dates are Mondays and Thursdays only. That is not a scheduling quirk — it is how I
+                    make sure two sprints never land on the same five days, which is the only way the fifth
+                    day of yours still gets my full attention.
+                </p>
+
+                <p>What I'm actually good at:</p>
+                <ul>
+                    <li>
+                        Going into a codebase somebody else wrote and making it behave — Laravel, React,
+                        Next.js, Python
+                    </li>
+                    <li>
+                        Bug backlogs, edge cases, the thing that only happens in production on a Tuesday
+                    </li>
+                    <li>Technical debt with a deadline attached</li>
+                    <li>Complex product and configuration logic, and the front end that carries it</li>
+                    <li>Being the one who reads the whole thing before touching it</li>
+                </ul>
+
+                <p>How it works:</p>
+                <ul>
+                    <li>I take two of these at a time, never starting on the same day.</li>
+                    {deskWindow && (
+                        <li>
+                            {deskWindow} every weekday. That covers the whole US Eastern and Central morning,
+                            all year: Nigeria has no daylight saving, so when your clocks change in November
+                            and March, mine doesn't, and the overlap holds either way.
+                        </li>
+                    )}
+                    <li>
+                        A written paragraph in your channel every day, whether or not there is good news. If
+                        you have ever had a contractor go quiet for three days, this is the part of the offer
+                        that matters.
+                    </li>
+                    <li>
+                        Your NDA, unsigned by me, is fine. Send it, I'll sign it same day. I don't have a
+                        competing one.
+                    </li>
+                    <li>
+                        If you're an agency: I work behind your logo, on your repo, under your NDA, and I
+                        will never contact your client. Ever. Not after the project, not in two years. Put it
+                        in writing and I'll sign that too.
+                    </li>
+                </ul>
+
+                <p>
+                    And the same guarantee as every other first engagement: if you ask within five business
+                    days of delivery, you get the full $2,400 back, you keep everything I produced, and I
+                    don't ask why.
+                </p>
+
+                <p>If it doesn't stop after the sprint, there's a retainer:</p>
+            </div>
+
+            <div class={offer}>
+                <p class={offerTitle}>Production Stability Retainer — $4,500/month</p>
+                <div class={offerBody}>
+                    <p>
+                        Up to 25 hours a month, four-business-hour response on production issues, weekly
+                        triage call. I take one of these at a time.
+                    </p>
+                </div>
+            </div>
+
+            <div class={body}>
+                {sprintSlots && <p>{sprintSlots}</p>}
+
+                {calendlySprint15 && (
+                    <p><a href={calendlySprint15}>Book 15 minutes &rarr;</a></p>
+                )}
+                {email && (
+                    <p>
+                        Or just send me the repo and the five bugs:{' '}
+                        <a href={`mailto:${email}`}>{email}</a>
+                    </p>
+                )}
+            </div>
+        </section>
+
+        <!-- ══ FAQ ═════════════════════════════════════════════════ -->
+        <section class="mt-14 border-t-4 border-gray-900 pt-8 dark:border-gray-100">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                Before you decide — the things you're allowed to ask
+            </h2>
+
+            <div class={`${body} mt-6`}>
+                <h3>Where are you?</h3>
+                <p>
+                    Lagos, Nigeria. WAT, UTC+1, no daylight saving — so the offset to you changes twice a
+                    year and never on my end.
+                </p>
+
+                {/* §3.6 gate — nothing about payment publishes until the $1 ACH test has passed. */}
+                {paymentRail && (
+                    <>
+                        <h3>How do I pay you, and is this going to be complicated?</h3>
+                        <p>
+                            No. Here is the whole thing in advance so you don't have to ask your finance
+                            person first.
+                        </p>
+                        <ul>
+                            <li>You are invoiced by {paymentRail.entity}, in US dollars.</li>
+                            {paymentRail.accountLine && (
+                                <li>
+                                    Payment goes to a US-domiciled account in my name with a routing number
+                                    and an account number — {paymentRail.accountLine}. Your AP system treats
+                                    it as a domestic ACH transfer. No SWIFT, no correspondent-bank fees, no
+                                    international wire form.
+                                </li>
+                            )}
+                            <li>
+                                I hold a completed {paymentRail.w8Form} and I will send it with the first
+                                invoice without being asked.
+                            </li>
+                            <li>
+                                All the work is performed in Nigeria, so it is foreign-source income under US
+                                rules. There is nothing for you to withhold and no 1099 to issue. If your
+                                finance team wants that in writing before you raise a PO, ask and I'll put it
+                                in an email.
+                            </li>
+                            <li>
+                                Terms: 50% on signature, 50% on delivery for the Sprint. Net 15. Milestones
+                                for anything larger.
+                            </li>
+                            {paymentRail.coiMsa && <li>{paymentRail.coiMsa}</li>}
+                        </ul>
+                    </>
+                )}
+
+                {/* §2.7.1 — publish only the lines that are actually contracted. */}
+                {contractCommitments && (
+                    <>
+                        <h3>What if you disappear?</h3>
+                        <p>
+                            Every repository is in your organisation from the first commit. Every project
+                            ships with a written runbook — six sections, listed on the scope document, written
+                            on day one rather than day five. Milestone payments mean you are never more than
+                            one milestone exposed.
+                        </p>
+                        {referenceBullet && (
+                            <p>
+                                And I'll give you a client to call before you commit; I don't script them and
+                                I'm not on the call.
+                            </p>
+                        )}
+                    </>
+                )}
+
+                <h3>Do you do hourly staff augmentation?</h3>
+                <p>
+                    Not under my own name, and not open-ended. My company, Opamedia, does outcome-scoped
+                    augmentation with a defined deliverable and a minimum engagement — if that's what you
+                    want, say so on the first call and I'll tell you in one minute whether it fits. If what
+                    you actually need is a body for N hours a week with no defined outcome, I'm the wrong
+                    person and I'd rather say that now.
+                </p>
+
+                <h3>Do you do a three-month retainer?</h3>
+                <p>
+                    Yes, in one shape: the Production Stability Retainer at $4,500 a month, up to 25 hours,
+                    four-business-hour response on production issues. I take one at a time — so sometimes the
+                    honest answer is "yes, from next month."
+                </p>
+
+                <h3>Do you do a discovery phase?</h3>
+                <p>
+                    Yes, and it has a price rather than being folded into a proposal: the $1,950 Specifier
+                    Journey Teardown. Seven business days, refundable for five, and credited in full against
+                    a build booked within 60 days.
+                </p>
+
+                <h3>What don't you do?</h3>
+                <p>
+                    Greenfield product builds from a blank page. Design-only work. Anything under $1,950.
+                    Projects where nothing at all can ever be published in any form, including anonymised.
+                </p>
+            </div>
+        </section>
+    </div>
+</Layout>

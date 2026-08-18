@@ -25,6 +25,7 @@ export const GET: APIRoute = async () => {
     const entries: Entry[] = [
         { path: '', priority: '1.0', lastmod: now },
         { path: '/about', priority: '0.8', lastmod: now },
+        { path: '/work-with-me', priority: '0.9', lastmod: now },
         { path: '/uses', priority: '0.5', lastmod: now },
         { path: '/blog', priority: '0.8', lastmod: now },
         ...posts.map((post) => ({

@@ -43,11 +43,45 @@ export const contractCommitments = false;
  */
 export const referenceBullet = false;
 
-/** §7.2 item 9 — the `sprint-15` Calendly event. `/discovery-call` is retired, not reused. */
-export const calendlyUrl: string | null = null;
+/**
+ * §7.2 item 9 / §3.3 item 5 — two Calendly events, nothing else. The generic
+ * `/discovery-call` is retired and redirected, not reused: it qualifies nobody.
+ * `sprint-15` must offer Monday and Thursday start dates only (Rule S3) and
+ * carry its five qualification questions before it is linked from anywhere.
+ */
+export const calendlySpecTools20: string | null = null;
+export const calendlySprint15: string | null = null;
+
+/** §3.2 — open Sprint slots for the next 30 days, refreshed Mondays. OQ4. */
+export const sprintSlots: string | null = null;
+
+/**
+ * §3.6 — the "How do I pay you?" answer. THE GATE (§3.6 step 4): nothing about
+ * payment publishes until the $1 ACH test has passed. If it has not passed by
+ * Friday 2026-09-11, publish `entity` and `w8Form` only and leave `accountLine`
+ * null — the account line is deleted, not softened.
+ *
+ * `coiMsa` is named only if a certificate of insurance or signable MSA actually
+ * exists; an offered-but-nonexistent COI is worse than an absent one.
+ *
+ * Never put account numbers here. §3.6: the page names the mechanism, the
+ * details go on the invoice.
+ */
+export interface PaymentRail {
+    /** Step 1 — the invoicing entity, used on every document without variation. */
+    entity: string;
+    /** Step 3 — "W-8BEN" (personal) or "W-8BEN-E" (registered entity). */
+    w8Form: 'W-8BEN' | 'W-8BEN-E';
+    /** Steps 2 + 4 — the provider behind the US-routing account. Null until the $1 test passes. */
+    accountLine: string | null;
+    /** Step 5 — only if these exist. */
+    coiMsa: string | null;
+}
+
+export const paymentRail: PaymentRail | null = null;
 
 /** Set once /work-with-me (§3.2) is live. Until then the second CTA does not render. */
-export const workWithMeUrl: string | null = null;
+export const workWithMeUrl: string | null = '/work-with-me';
 
 /**
  * §2.4 — rewritten every Monday at 11:45, or deleted. Set to `null` on any week

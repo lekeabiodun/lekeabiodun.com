@@ -5,6 +5,7 @@ const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const links = [
     { href: '/', label: 'Home', active: path === '/' },
     { href: '/about', label: 'About', active: path === '/about' },
+    { href: '/work-with-me', label: 'Work with me', active: path === '/work-with-me' },
     { href: '/blog', label: 'Blog', active: path === '/blog' || path.startsWith('/blog/') },
 ];
 
@@ -19,7 +20,7 @@ const inactiveClass = 'text-gray-500 border-transparent';
             <a
                 class:list={[
                     link.active ? activeClass : inactiveClass,
-                    'py-1 font-medium hover:text-gray-900 dark:hover:text-gray-100',
+                    'whitespace-nowrap py-1 font-medium hover:text-gray-900 dark:hover:text-gray-100',
                 ]}
                 href={link.href}
             >

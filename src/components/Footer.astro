@@ -5,7 +5,7 @@
  * Email and the booking link are gated in ../data/profile.ts.
  */
 import SocialLinks from './SocialLinks.astro';
-import { calendlyUrl, email } from '../data/profile';
+import { calendlySpecTools20, email } from '../data/profile';
 
 const year = new Date().getFullYear();
 ---
@@ -15,16 +15,16 @@ const year = new Date().getFullYear();
         <p>Leke Abiodun — Lagos, Nigeria (WAT, UTC+1)</p>
 
         {
-            (email || calendlyUrl) && (
+            (email || calendlySpecTools20) && (
                 <p>
                     {email && (
                         <a class="text-gray-700 hover:underline dark:text-gray-300" href={`mailto:${email}`}>
                             {email}
                         </a>
                     )}
-                    {email && calendlyUrl && <span> · </span>}
-                    {calendlyUrl && (
-                        <a class="text-gray-700 hover:underline dark:text-gray-300" href={calendlyUrl}>
+                    {email && calendlySpecTools20 && <span> · </span>}
+                    {calendlySpecTools20 && (
+                        <a class="text-gray-700 hover:underline dark:text-gray-300" href={calendlySpecTools20}>
                             Book 20 minutes &rarr;
                         </a>
                     )}

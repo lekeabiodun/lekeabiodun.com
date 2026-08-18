@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 import { getPosts, formatDate } from '../lib/sanity';
 import {
     availability,
-    calendlyUrl,
+    calendlySpecTools20,
     contractCommitments,
     deskWindow,
     email,
@@ -255,9 +255,9 @@ const body = 'prose prose-zinc max-w-none dark:prose-invert';
             </section>
         )}
 
-        {calendlyUrl && (
+        {calendlySpecTools20 && (
             <p class="text-sm text-gray-500">
-                <a class="text-gray-700 underline dark:text-gray-300" href={calendlyUrl}>Book 20 minutes &rarr;</a>
+                <a class="text-gray-700 underline dark:text-gray-300" href={calendlySpecTools20}>Book 20 minutes &rarr;</a>
             </p>
         )}
     </div>
